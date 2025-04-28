@@ -28,13 +28,12 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
-    # open-in-view: false
+    open-in-view: false
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 100
-    open-in-view: false
   #  h2:
   #    console:
   #      enabled: true
@@ -67,4 +66,5 @@ spring:
 
 spring:
   config.activate.on-profile: test
+  datasource.driver-class-name: org.h2.Driver
   datasource.url: jdbc:h2:mem:testdb
