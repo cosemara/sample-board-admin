@@ -1,7 +1,7 @@
 package com.sample.boardadmin.dto.security;
 
 import com.sample.boardadmin.domain.constant.RoleType;
-import com.sample.boardadmin.dto.UserAccountDto;
+import com.sample.boardadmin.dto.AdminAccountDto;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +41,7 @@ public record BoardAdminPrincipal(
         );
     }
 
-    public static BoardAdminPrincipal from(UserAccountDto dto) {
+    public static BoardAdminPrincipal from(AdminAccountDto dto) {
         return BoardAdminPrincipal.of(
             dto.userId(),
             dto.userPassword(),
@@ -52,8 +52,8 @@ public record BoardAdminPrincipal(
         );
     }
 
-    public UserAccountDto toDto() {
-        return UserAccountDto.of(
+    public AdminAccountDto toDto() {
+        return AdminAccountDto.of(
             username,
             password,
             authorities.stream()

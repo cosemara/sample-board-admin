@@ -1,6 +1,5 @@
 package com.sample.boardadmin.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -17,12 +16,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("View 컨트롤러 - 어드민 사용자 계정 관리")
 @Import(SecurityConfig.class)
-@WebMvcTest(AdminUserAccountManagementController.class)
-class AdminUserAccountManagementControllerTest {
+@WebMvcTest(AdminAccountManagementController.class)
+class AdminAccountManagementControllerTest {
 
     private final MockMvc mockMvc;
 
-    public AdminUserAccountManagementControllerTest(@Autowired MockMvc mockMvc) {
+    public AdminAccountManagementControllerTest(@Autowired MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
 

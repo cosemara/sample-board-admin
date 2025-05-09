@@ -2,7 +2,7 @@ package com.sample.boardadmin.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.sample.boardadmin.domain.UserAccount;
+import com.sample.boardadmin.domain.AdminAccount;
 import com.sample.boardadmin.domain.constant.RoleType;
 import java.util.List;
 import java.util.Optional;
@@ -20,49 +20,49 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @DataJpaTest
 class JpaRepositoryTest {
 
-    private final UserAccountRepository userAccountRepository;
+    private final AdminAccountRepository adminAccountRepository;
 
-    public JpaRepositoryTest(@Autowired UserAccountRepository userAccountRepository) {
-        this.userAccountRepository = userAccountRepository;
+    public JpaRepositoryTest(@Autowired AdminAccountRepository adminAccountRepository) {
+        this.adminAccountRepository = adminAccountRepository;
     }
 
     @DisplayName("회원 정보 select 테스트")
     @Test
-    void given_when_then() {
+    void givenAdminAccounts_whenSelecting_thenWorksFine() {
         // given
 
         // when
-        List<UserAccount> userAccounts = userAccountRepository.findAll();
+        List<AdminAccount> adminAccounts = adminAccountRepository.findAll();
 
         // then
-        assertThat(userAccounts).isNotNull().hasSize(4);
+        assertThat(adminAccounts).isNotNull().hasSize(4);
     }
 
     @DisplayName("회원 정보 insert 테스트")
     @Test
-    void givenUserAccount_whenInserting_thenWorksFine() {
+    void givenAdminAccount_whenInserting_thenWorksFine() {
         // given
-        long previousCount = userAccountRepository.count();
-        UserAccount userAccount = UserAccount.of("test", "pw", Set.of(RoleType.DEVELOPER), null, null, null);
+        long previousCount = adminAccountRepository.count();
+        AdminAccount adminAccount = AdminAccount.of("test", "pw", Set.of(RoleType.DEVELOPER), null, null, null);
 
         // when
-        userAccountRepository.save(userAccount);
+        adminAccountRepository.save(adminAccount);
 
         // then
-        assertThat(userAccountRepository.count()).isEqualTo(previousCount+1);
+        assertThat(adminAccountRepository.count()).isEqualTo(previousCount+1);
     }
 
     @DisplayName("회원 정보 update 테스트")
     @Test
-    void givenUserAccount_whenUpdating_thenWorksFine() {
+    void givenAdminAccountAndRoleType_whenUpdating_thenWorksFine() {
         // given
-        UserAccount userAccount = userAccountRepository.getReferenceById("uno");
-        userAccount.addRoleType(RoleType.DEVELOPER);
-        userAccount.addRoleTypes(Set.of(RoleType.USER, RoleType.ADMIN));
-        userAccount.removeRoleType(RoleType.ADMIN);
+        AdminAccount adminAccount = adminAccountRepository.getReferenceById("uno");
+        adminAccount.addRoleType(RoleType.DEVELOPER);
+        adminAccount.addRoleTypes(Set.of(RoleType.USER, RoleType.ADMIN));
+        adminAccount.removeRoleType(RoleType.ADMIN);
 
         // when
-        UserAccount updatedAccount = userAccountRepository.saveAndFlush(userAccount);
+        AdminAccount updatedAccount = adminAccountRepository.saveAndFlush(adminAccount);
 
         // then
         assertThat(updatedAccount).hasFieldOrPropertyWithValue("userId", "uno")
@@ -71,16 +71,16 @@ class JpaRepositoryTest {
 
     @DisplayName("회원 정보 delete 테스트")
     @Test
-    void givenUserAccount_whenDeleting_thenWorksFine() {
+    void givenAdminAccount_whenDeleting_thenWorksFine() {
         // given
-        long previousCount = userAccountRepository.count();
-        UserAccount userAccount = userAccountRepository.getReferenceById("uno");
+        long previousCount = adminAccountRepository.count();
+        AdminAccount adminAccount = adminAccountRepository.getReferenceById("uno");
 
         // when
-        userAccountRepository.delete(userAccount);
+        adminAccountRepository.delete(adminAccount);
 
         // then
-        assertThat(userAccountRepository.count()).isEqualTo(previousCount-1);
+        assertThat(adminAccountRepository.count()).isEqualTo(previousCount-1);
     }
 
     @EnableJpaAuditing
