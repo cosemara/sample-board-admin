@@ -6,16 +6,12 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.boardadmin.domain.constant.RoleType;
 import com.sample.boardadmin.dto.ArticleCommentDto;
-import com.sample.boardadmin.dto.ArticleDto;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.dto.propertiees.ProjectProperties;
-import com.sample.boardadmin.dto.response.ArticleClientResponse;
 import com.sample.boardadmin.dto.response.ArticleCommentClientResponse;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -163,7 +159,6 @@ class ArticleCommentManagementServiceTest {
         private UserAccountDto createUserAccountDto() {
             return UserAccountDto.of(
                 "unoTest",
-                Set.of(RoleType.ADMIN),
                 "uno-test@email.com",
                 "uno-test",
                 "test memo"

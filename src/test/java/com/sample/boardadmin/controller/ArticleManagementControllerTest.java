@@ -14,13 +14,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import com.sample.boardadmin.config.SecurityConfig;
-import com.sample.boardadmin.domain.constant.RoleType;
 import com.sample.boardadmin.dto.ArticleDto;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.service.ArticleManagementService;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,7 +111,6 @@ class ArticleManagementControllerTest {
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
             "unoTest",
-            Set.of(RoleType.ADMIN),
             "uno-test@email.com",
             "uno-test",
             "test memo"
