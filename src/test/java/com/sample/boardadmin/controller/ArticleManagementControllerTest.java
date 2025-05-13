@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import com.sample.boardadmin.config.SecurityConfig;
+import com.sample.boardadmin.config.TestSecurityConfig;
 import com.sample.boardadmin.dto.ArticleDto;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.service.ArticleManagementService;
@@ -29,7 +30,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("컨트롤러 - 게시글 관리")
-@Import(SecurityConfig.class)
+@Import(TestSecurityConfig.class)
 @WebMvcTest(ArticleManagementController.class)
 class ArticleManagementControllerTest {
 
