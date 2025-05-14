@@ -12,6 +12,7 @@ import com.sample.boardadmin.dto.propertiees.ProjectProperties;
 import com.sample.boardadmin.dto.response.ArticleCommentClientResponse;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ import org.springframework.test.web.client.MockRestServiceServer;
 class ArticleCommentManagementServiceTest {
 
 
-    //    @Disabled("실제 API 호출 결과 관찰용이므로 평상시엔 비활성화")
+    @Disabled("실제 API 호출 결과 관찰용이므로 평상시엔 비활성화")
     @DisplayName("실제 API 호출 테스트")
     @SpringBootTest
     @Nested
@@ -60,7 +61,7 @@ class ArticleCommentManagementServiceTest {
     @DisplayName("API mocking 테스트")
     @EnableConfigurationProperties(ProjectProperties.class)
     @AutoConfigureWebClient(registerRestTemplate = true)
-    @RestClientTest(ArticleManagementService.class)
+    @RestClientTest(ArticleCommentManagementService.class)
     @Nested
     class RestTemplateTest {
 
