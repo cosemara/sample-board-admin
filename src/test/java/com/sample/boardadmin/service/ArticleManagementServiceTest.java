@@ -5,16 +5,14 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.boardadmin.domain.constant.RoleType;
 import com.sample.boardadmin.dto.ArticleDto;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.dto.propertiees.ProjectProperties;
 import com.sample.boardadmin.dto.response.ArticleClientResponse;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -32,8 +30,7 @@ import org.springframework.test.web.client.MockRestServiceServer;
 @DisplayName("비즈니스 로직 - 게시글 관리")
 class ArticleManagementServiceTest {
 
-
-    //    @Disabled("실제 API 호출 결과 관찰용이므로 평상시엔 비활성화")
+    @Disabled("실제 API 호출 결과 관찰용이므로 평상시엔 비활성화")
     @DisplayName("실제 API 호출 테스트")
     @SpringBootTest
     @Nested
