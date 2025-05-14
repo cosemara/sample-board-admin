@@ -108,7 +108,7 @@ class ArticleManagementServiceTest {
             Long articleId = 1L;
             ArticleDto expectedArticle = createArticleDto("게시판", "글");
             mockRestServiceServer
-                .expect(requestTo(projectProperties.board().url() + "/api/articles/" + articleId))
+                .expect(requestTo(projectProperties.board().url() + "/api/articles/" + articleId + "?projection=withUserAccount"))
                 .andRespond(withSuccess(
                     objectMapper.writeValueAsString(expectedArticle),
                     MediaType.APPLICATION_JSON
