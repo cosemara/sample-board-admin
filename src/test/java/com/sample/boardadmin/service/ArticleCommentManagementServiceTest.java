@@ -108,7 +108,7 @@ class ArticleCommentManagementServiceTest {
             Long articleCommentId = 1L;
             ArticleCommentDto expectedArticleComment = createArticleCommentDto("댓글");
             mockRestServiceServer
-                .expect(requestTo(projectProperties.board().url() + "/api/articleComments/" + articleCommentId))
+                .expect(requestTo(projectProperties.board().url() + "/api/articleComments/" + articleCommentId + "?projection=withUserAccount"))
                 .andRespond(withSuccess(
                     objectMapper.writeValueAsString(expectedArticleComment),
                     MediaType.APPLICATION_JSON
