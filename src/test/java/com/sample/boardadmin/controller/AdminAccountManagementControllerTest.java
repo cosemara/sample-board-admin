@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import com.sample.boardadmin.config.GlobalControllerConfig;
 import com.sample.boardadmin.config.SecurityConfig;
 import com.sample.boardadmin.domain.constant.RoleType;
 import com.sample.boardadmin.dto.AdminAccountDto;
@@ -31,7 +32,7 @@ import org.springframework.test.context.event.annotation.BeforeTestMethod;
 import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("컨트롤러 - 어드민 회원")
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class, GlobalControllerConfig.class})
 @WebMvcTest(AdminAccountManagementController.class)
 class AdminAccountManagementControllerTest {
 
