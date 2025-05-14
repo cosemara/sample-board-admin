@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import com.sample.boardadmin.config.GlobalControllerConfig;
 import com.sample.boardadmin.config.TestSecurityConfig;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.service.UserAccountManagementService;
@@ -28,7 +29,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("컨트롤러 - 회원 관리")
-@Import(TestSecurityConfig.class)
+@Import({TestSecurityConfig.class, GlobalControllerConfig.class})
 @WebMvcTest(UserAccountManagementController.class)
 class UserAccountManagementControllerTest {
 
