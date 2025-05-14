@@ -13,7 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import com.sample.boardadmin.config.SecurityConfig;
 import com.sample.boardadmin.config.TestSecurityConfig;
 import com.sample.boardadmin.dto.UserAccountDto;
 import com.sample.boardadmin.service.UserAccountManagementService;
@@ -35,7 +34,6 @@ class UserAccountManagementControllerTest {
     private final MockMvc mvc;
 
     @MockBean private UserAccountManagementService userAccountManagementService;
-
 
     public UserAccountManagementControllerTest(@Autowired MockMvc mvc) {
         this.mvc = mvc;
